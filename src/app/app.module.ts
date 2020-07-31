@@ -10,6 +10,7 @@ import { environment } from 'src/environments/environment';
 /* Modulos de Firebase */
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { PlayerService } from './services/player.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,7 +20,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
     AngularFireDatabaseModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [PlayerService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
