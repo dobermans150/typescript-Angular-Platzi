@@ -3,7 +3,7 @@ import { Countries } from './countries';
 
 
 export interface Team {
-  $key: string;
+  $key?: string;
   name: string;
   country: Countries;
   players: Player[];

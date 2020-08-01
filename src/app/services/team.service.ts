@@ -4,7 +4,7 @@ import { AngularFireList, AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-export const TeamsTableHeaders = ['name', 'country', 'players'];
+export const TeamsTableHeaders = ['Name', 'Country', 'Players'];
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +17,7 @@ export class TeamService {
   }
 
   /* Obteniendo lista de Equipos */
-  getPlayers(): Observable<Team[]> {
+  getTeams(): Observable<Team[]> {
     return this.teamDb.snapshotChanges().pipe(
       map((changes) => {
         return changes.map((c) => ({
@@ -29,17 +29,17 @@ export class TeamService {
   }
 
   /* Agergar un Equipos */
-  addPlayer(player: Team) {
+  addTeam(player: Team) {
     return this.teamDb.push(player);
   }
 
   /* Eliminado un Equipos */
-  deletePlayer(id: string) {
+  deleteTeam(id: string) {
     this.db.list('/teams').remove(id);
   }
 
   /* Editando un Equipos */
-  editPlayer(newTeamData) {
+  editTeam(newTeamData) {
     const $key = newTeamData.$key;
     delete newTeamData.$key;
     this.db.list('/teams').update($key, newTeamData);
