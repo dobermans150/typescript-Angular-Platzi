@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { PlayerService } from './services/player.service';
+import { TeamService } from './services/team.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +21,7 @@ import { PlayerService } from './services/player.service';
     AngularFireDatabaseModule,
     AppRoutingModule,
   ],
-  providers: [PlayerService],
+  providers: [PlayerService, TeamService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
