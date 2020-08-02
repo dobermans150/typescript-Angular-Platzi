@@ -28,18 +28,21 @@ export class PlayerService {
 
   /* Agergar un Jugador */
   addPlayer(player: Player) {
+    if (player.leftFooted === null) {
+      player.leftFooted = false;
+    }
     return this.playerDb.push(player);
   }
 
   /* Eliminado un jugador */
-  deletePlayer(id: string){
+  deletePlayer(id: string) {
     this.db.list('/players').remove(id);
   }
 
   /* Editando un jugador */
-  editPlayer(newPlayerData){
+  editPlayer(newPlayerData: Player) {
     const $key = newPlayerData.$key;
-    delete(newPlayerData.$key);
-    this.db.list('/player').update($key, newPlayerData);
+    delete newPlayerData.$key;
+    this.db.list('/players').update($key, newPlayerData);
   }
 }
